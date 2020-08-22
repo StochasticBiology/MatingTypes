@@ -1,10 +1,17 @@
 function [FrB,FrU,FrMt1,FrMt2] = MatingTypes(mu,rsex,r)
-    M=50;
+    % Returns equilibrium frequencies of B, U, UMt1 and UMt2 alleles
+    % mu: mtDNA mutation rate. (0.05)
+    % rsex: sex rate. (0.9)
+    % r: recombination rate between mating type and uniparentla inheritance regulation loci (0)
+    
+    M=50; % the number of mitochondria per cell
     n=6; 
-    x=1.5; 
-    s=1;
-    l=0.;
-    delta=0.001;
+    x=1.5; % fitness nonlinearity, x>1
+    s=1; % selection strength
+    l=0.; % paternal leakage
+    delta=0.001; % gamete death rate
+    
+    %
     P=zeros(M+1,n); % B U UMt1 BMt2 UMt2 BMt1
     P(1,1)=1;
 
@@ -42,7 +49,6 @@ function [FrB,FrU,FrMt1,FrMt2] = MatingTypes(mu,rsex,r)
             PSIP(i+1,j+1)=hygepdf(i,M,j,round(l*M));
         end
     end
-    % Mitochondrial resampling for asexual doubling and clonal division
     A=zeros(0,1);
     for i=0:M
         for j=0:M
