@@ -1,5 +1,5 @@
 function [FrB,FrU,FrMt1,FrMt2] = MatingTypes(mu,rsex,r)
-    % Returns equilibrium frequencies of B, U, UMt1 and UMt2 alleles
+    % Returns equilibrium frequencies of B, U, UMt1 and BMt2 alleles
     % mu: mtDNA mutation rate. (0.05)
     % rsex: sex rate. (0.9)
     % r: recombination rate between mating type and uniparentla inheritance regulation loci (0)
